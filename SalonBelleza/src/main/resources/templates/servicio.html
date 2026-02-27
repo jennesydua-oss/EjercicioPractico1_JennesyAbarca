@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout (~{::body}, ${contenido}='this')">
+
+<body>
+
+<h2>Listado de Servicios</h2>
+
+<a th:href="@{/servicios/nuevo}">Agregar Servicio</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Servicio</th>
+            <th>Precio</th>
+            <th>Categoría</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="s : ${listaServicios}">
+            <td th:text="${s.id}"></td>
+            <td th:text="${s.nombre}"></td>
+            <td th:text="${s.precio}"></td>
+            <td th:text="${s.categoria.nombre}"></td>
+            <td>
+                <a th:href="@{/servicios/editar/{id}(id=${s.id})}">Editar</a>
+                <a th:href="@{/servicios/eliminar/{id}(id=${s.id})}"
+                   onclick="return confirm('¿Eliminar servicio?')">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

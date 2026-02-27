@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout (~{::body}, ${contenido}='this')">
+
+<body>
+
+<h2>Listado de Categorías</h2>
+
+<a th:href="@{/categorias/nueva}">Agregar Nueva Categoría</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="cat : ${listaCategorias}">
+            <td th:text="${cat.id}"></td>
+            <td th:text="${cat.nombre}"></td>
+            <td>
+                <a th:href="@{/categorias/editar/{id}(id=${cat.id})}">Editar</a>
+                <a th:href="@{/categorias/eliminar/{id}(id=${cat.id})}"
+                   onclick="return confirm('¿Eliminar categoría?')">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

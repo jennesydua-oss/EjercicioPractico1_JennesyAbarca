@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}">Salón de Belleza</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+
+<header>
+    <h1>Salón Belleza Brillo & Glamour</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a th:href="@{/}">Inicio</a></li>
+        <li><a th:href="@{/categorias}">Categorías</a></li>
+        <li><a th:href="@{/servicios}">Servicios</a></li>
+        <li><a th:href="@{/reservas}">Reservas</a></li>
+        <li><a th:href="@{/contacto}">Contacto</a></li>
+    </ul>
+</nav>
+
+<main>
+    <div th:replace="${contenido}"></div>
+</main>
+
+<footer>
+    <p>© 2026 Salón Belleza Brillo & Glamour</p>
+</footer>
+
+</body>
+</html>
